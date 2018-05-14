@@ -6,7 +6,6 @@
 \DeclareOption{professional}{\@professionaltrue}
 \DeclareOption{doctor}{\@doctortrue\@masterfalse}
 \DeclareOption{master}{\@doctorfalse\@mastertrue}
-\DeclareOption{bachelor}{\@doctorfalse\@masterfalse}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
 
