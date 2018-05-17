@@ -126,41 +126,50 @@
       \makebox[4em][s]{学号}\underline{\makebox[6em]{\@xuehao}}\hfill
       \makebox[5em][s]{密级}\underline{\makebox[5em]{\@miji}}\par
     \endgroup
-    \vspace{65.2bp}
+    
+    % \vspace{65.2bp}
+    \vfill
+
     \begingroup
       \centering\includegraphics[scale=0.23]{fnu}\par
     \endgroup
     \begingroup
       \linespread{1.13194}\zihao{-1}\bfseries\centering
       \if@professional
-        全日制及非全日制专业学位研究生\par
+        全日制及非全日制专业学位研究生\\
       \else
         \@peiyangfangshi 学术学位研究生
       \fi
       \@xueweijibie 学位论文\par
     \endgroup
-    \vspace{16.3bp}
+    % \vspace{16.3bp}
     \begingroup
       \centering
       \linespread{1.85227}\zihao{2}\bfseries\@zhongwentiming\par
       \@yingwentiming\par
       \linespread{1.50926}\zihao{-2}\bfseries\@zuozhexingming\par
     \endgroup
-    \vspace{16.3bp}
+
+    % \vspace{16.3bp}
+    \vfill
+
     \begingroup
       \linespread{1.36905}\zihao{4}\bfseries\raggedright
       \if@professional
         \makebox[7em][s]{培养方式：}\underline{\makebox[10em]{\@peiyangfangshi}}\par
         \makebox[7em][s]{学位类别：}\underline{\makebox[10em]{\@xueweileibie}}\par
-      \else
-        \vspace{46bp}
+      % \else
+      % \vspace{46bp}
       \fi
       \makebox[7em][s]{学科专业：}\underline{\makebox[10em]{\@xuekezhuanye}}\par
       \makebox[7em][s]{研究方向：}\underline{\makebox[10em]{\@yanjiufangxiang}}\par
       \makebox[7em][s]{指导教师：}\underline{\makebox[10em]{\@zhidaojiaoshi}}\par
       \makebox[7em][s]{申请学位级别：}\underline{\makebox[10em]{\@xueweijibie}}\par
     \endgroup
-    \vspace{54.6bp}
+
+    % \vspace{54.6bp}
+    \vfill
+
     \begingroup
       \linespread{1.07143}\zihao{4}\bfseries\raggedleft
       \makebox[8em][s]{论文提交日期：}\underline{\makebox[8em]{\@tijiaoriqi}}\par
@@ -170,9 +179,12 @@
       \makebox[8em][s]{学位授予单位：}\underline{\makebox[8em]{\@shouyudanwei}}\par
       \makebox[8em][s]{学位授予日期：}\underline{\makebox[8em]{\@shouyuriqi}}\par
     \endgroup
-    \vspace{16.3bp}
+
+    % \vspace{16.3bp}
+    \vfill
+
     \begingroup
-      \linespread{1.94048}\zihao{4}\bfseries\centering\@riqi\par
+      \linespread{1.94047}\zihao{4}\bfseries\centering\@riqi\par
     \endgroup
   \end{titlepage}}
 
@@ -182,8 +194,7 @@
   \begingroup
     \linespread{1.13194}\heiti\zihao{-2}\bfseries\centering
       \@shouyudanwei 学位论文原创性声明\par
-    \markboth{\MakeUppercase{\@shouyudanwei 学位论文原创性声明}}{%
-      \MakeUppercase{\@shouyudanwei 学位论文原创性声明}}
+    \markboth{\MakeUppercase{\@shouyudanwei 学位论文原创性声明}}{}
   \endgroup
   \vspace{44bp}
   \begingroup
@@ -195,13 +206,13 @@
     \vspace{22bp}
     \hspace{16.5em}年\qquad 月\qquad 日\par
   \endgroup
+
   \clearpage
   \thispagestyle{myheadings}
   \begingroup
     \linespread{1.13194}\heiti\zihao{-2}\bfseries\centering
       \@shouyudanwei 学位论文使用授权声明\par
-    \markboth{\MakeUppercase{\@shouyudanwei 学位论文使用授权声明}}{%
-      \MakeUppercase{\@shouyudanwei 学位论文使用授权声明}}
+    \markboth{\MakeUppercase{\@shouyudanwei 学位论文使用授权声明}}{}
   \endgroup
   \vspace{44bp}
   \begingroup
