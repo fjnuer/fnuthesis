@@ -13,7 +13,8 @@
 \LoadClass[UTF8,fontset=none,a4paper]{ctexbook}
 
 \RequirePackage{geometry}
-\geometry{top=3cm,bottom=3cm,left=2.9cm,right=2.8cm,headsep=\dimexpr1.5cm-\headheight\relax,footskip=1.25cm}
+\geometry{top=3cm,bottom=3cm,left=2.9cm,right=2.8cm,
+  headsep=\dimexpr1.5cm-\headheight\relax,footskip=1.25cm}
 
 \RequirePackage{fancyhdr}
 \renewcommand*{\headrule}{%
@@ -122,10 +123,8 @@
       \makebox[4em][s]{学号}\underline{\makebox[6em]{\@xuehao}}\hfill
       \makebox[5em][s]{密级}\underline{\makebox[5em]{\@miji}}\par
     \endgroup
-    
     % \vspace{65.2bp}
     \vfill
-
     \begingroup
       \centering\includegraphics[scale=0.23]{fnu}\par
     \endgroup
@@ -145,10 +144,8 @@
       \@yingwentiming\par
       \linespread{1.50926}\zihao{-2}\bfseries\@zuozhexingming\par
     \endgroup
-
     % \vspace{16.3bp}
     \vfill
-
     \begingroup
       \linespread{1.36905}\zihao{4}\bfseries\raggedright
       \if@professional
@@ -162,10 +159,8 @@
       \makebox[7em][s]{指导教师：}\underline{\makebox[10em]{\@zhidaojiaoshi}}\par
       \makebox[7em][s]{申请学位级别：}\underline{\makebox[10em]{\@xueweijibie}}\par
     \endgroup
-
     % \vspace{54.6bp}
     \vfill
-
     \begingroup
       \linespread{1.07143}\zihao{4}\bfseries\raggedleft
       \makebox[8em][s]{论文提交日期：}\underline{\makebox[8em]{\@tijiaoriqi}}\par
@@ -175,12 +170,10 @@
       \makebox[8em][s]{学位授予单位：}\underline{\makebox[8em]{\@shouyudanwei}}\par
       \makebox[8em][s]{学位授予日期：}\underline{\makebox[8em]{\@shouyuriqi}}\par
     \endgroup
-
     % \vspace{16.3bp}
     \vfill
-
     \begingroup
-      \linespread{1.94047}\zihao{4}\bfseries\centering\@riqi\par
+      \linespread{1.94048}\zihao{4}\bfseries\centering\@riqi\par
     \endgroup
   \end{titlepage}}
 
@@ -235,7 +228,7 @@
   \fi
   \chapter{\contentsname}
   \@starttoc{toc}
-\if@restonecol\twocolumn\fi}
+  \if@restonecol\twocolumn\fi}
 
 \RequirePackage{titletoc}
 \contentsmargin{0bp}
@@ -277,10 +270,6 @@
   \else
       \@restonecoltrue
   \fi
-  % \twocolumn[\@makechapterhead{\indexname}]%
-  % \@mkboth{\MakeUppercase\indexname}%
-  %         {\MakeUppercase\indexname}%
-  % \thispagestyle{empty}
   \parindent\z@
   \parskip\z@ \@plus .3\p@\relax
   \columnseprule \z@
