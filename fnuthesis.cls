@@ -15,6 +15,11 @@
   headsep=\dimexpr1.5cm-\headheight\relax,footskip=1.25cm]{geometry}
 
 \RequirePackage{fancyhdr}
+\if@doctor
+  \renewcommand{\headrulewidth}{1.5bp}
+\else
+  \renewcommand{\headrulewidth}{0.5bp}
+\fi
 \renewcommand*{\headrule}{%
   \if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
   \hrule\@height\headrulewidth\@width\headwidth
@@ -24,30 +29,20 @@
 \fancypagestyle{myheadings}{%
   \fancyhf{}
   \fancyhead[C]{\linespread{1.29365}\zihao{5}\leftmark}
-  \fancyfoot[C]{\linespread{1.29365}\zihao{5}\thepage}
-  \if@doctor
-    \renewcommand{\headrulewidth}{1.5bp}
-  \else
-    \renewcommand{\headrulewidth}{0.5bp}
-  \fi}
+  \fancyfoot[C]{\linespread{1.29365}\zihao{5}\thepage}}
 \fancypagestyle{headings}{%
   \fancyhf{}
   \fancyhead[CO]{\linespread{1.29365}\zihao{5}\leftmark}
   \fancyhead[CE]{\linespread{1.29365}\zihao{5}
     \@shouyudanwei\@xuekeleibie\@xueweijibie 学位论文}
-  \fancyfoot[C]{\linespread{1.29365}\zihao{5}\thepage}
-  \if@doctor
-    \renewcommand{\headrulewidth}{1.5bp}
-  \else
-    \renewcommand{\headrulewidth}{0.5bp}
-  \fi}
+  \fancyfoot[C]{\linespread{1.29365}\zihao{5}\thepage}}
 \pagestyle{headings}
 
 \renewcommand\frontmatter{%
   \if@openright
-    \thispagestyle{empty}\cleardoublepage
+    \cleardoublepage
   \else
-    \thispagestyle{empty}\clearpage
+    \clearpage
   \fi
   \@mainmatterfalse
   \pagenumbering{Roman}}
@@ -113,14 +108,15 @@
 \newcommand*{\@riqi}{}
 \newcommand*{\riqi}[1]{\renewcommand*{\@riqi}{#1}}
 
+\RequirePackage[normalem]{ulem}
 \AtBeginDocument{%
   \begin{titlepage}
     \begingroup
       \linespread{1.94048}\zihao{4}\bfseries\raggedright
-      \makebox[4em][s]{学\hfill 校\hfill 编\hfill 号}\underline{\makebox[6em]{\@xuexiaobianhao}}\hfill
-      \makebox[5em][s]{图\hfill 书\hfill 分\hfill 类\hfill 号}\underline{\makebox[5em]{\@tushufenleihao}}\par
-      \makebox[4em][s]{学\hfill 号}\underline{\makebox[6em]{\@xuehao}}\hfill
-      \makebox[5em][s]{密\hfill 级}\underline{\makebox[5em]{\@miji}}\par
+      \makebox[4em][s]{学\hfill 校\hfill 编\hfill 号}\uline{\makebox[6em]{\@xuexiaobianhao}}\hfill
+      \makebox[5em][s]{图\hfill 书\hfill 分\hfill 类\hfill 号}\uline{\makebox[5em]{\@tushufenleihao}}\par
+      \makebox[4em][s]{学\hfill 号}\uline{\makebox[6em]{\@xuehao}}\hfill
+      \makebox[5em][s]{密\hfill 级}\uline{\makebox[5em]{\@miji}}\par
     \endgroup
     % \vspace{65.2bp}
     \vfill
@@ -148,36 +144,43 @@
     \begingroup
       \linespread{1.36905}\zihao{4}\bfseries\raggedright
       \if@professional
-        \makebox[7em][s]{培\hfill 养\hfill 方\hfill 式：}\underline{\makebox[10em]{\@peiyangfangshi}}\par
-        \makebox[7em][s]{学\hfill 位\hfill 类\hfill 别：}\underline{\makebox[10em]{\@xueweileibie}}\par
+        \makebox[7em][s]{培\hfill 养\hfill 方\hfill 式：}\uline{\makebox[10em]{\@peiyangfangshi}}\par
+        \makebox[7em][s]{学\hfill 位\hfill 类\hfill 别：}\uline{\makebox[10em]{\@xueweileibie}}\par
       % \else
       % \vspace{46bp}
       \fi
-      \makebox[7em][s]{学\hfill 科\hfill 专\hfill 业：}\underline{\makebox[10em]{\@xuekezhuanye}}\par
-      \makebox[7em][s]{研\hfill 究\hfill 方\hfill 向：}\underline{\makebox[10em]{\@yanjiufangxiang}}\par
-      \makebox[7em][s]{指\hfill 导\hfill 教\hfill 师：}\underline{\makebox[10em]{\@zhidaojiaoshi}}\par
-      \makebox[7em][s]{申\hfill 请\hfill 学\hfill 位\hfill 级\hfill 别：}\underline{\makebox[10em]{\@xueweijibie}}\par
+      \makebox[7em][s]{学\hfill 科\hfill 专\hfill 业：}\uline{\makebox[10em]{\@xuekezhuanye}}\par
+      \makebox[7em][s]{研\hfill 究\hfill 方\hfill 向：}\uline{\makebox[10em]{\@yanjiufangxiang}}\par
+      \makebox[7em][s]{指\hfill 导\hfill 教\hfill 师：}\uline{\makebox[10em]{\@zhidaojiaoshi}}\par
+      \makebox[7em][s]{申\hfill 请\hfill 学\hfill 位\hfill 级\hfill 别：}\uline{\makebox[10em]{\@xueweijibie}}\par
     \endgroup
     % \vspace{54.6bp}
     \vfill
     \begingroup
       \linespread{1.07143}\zihao{4}\bfseries\raggedleft
-      \makebox[8em][s]{论\hfill 文\hfill 提\hfill 交\hfill 日\hfill 期：}\underline{\makebox[8em]{\@tijiaoriqi}}\par
-      \makebox[8em][s]{论\hfill 文\hfill 评\hfill 阅\hfill 人：}\underline{\makebox[8em]{\@pingyueren}}\par
-      \makebox[8em][s]{论\hfill 文\hfill 答\hfill 辩\hfill 日\hfill 期：}\underline{\makebox[8em]{\@dabianriqi}}\par
-      \makebox[8em][s]{答\hfill 辩\hfill 委\hfill 员\hfill 会\hfill 主\hfill 席：}\underline{\makebox[8em]{\@weiyuanhuizhuxi}}\par
-      \makebox[8em][s]{学\hfill 位\hfill 授\hfill 予\hfill 单\hfill 位：}\underline{\makebox[8em]{\@shouyudanwei}}\par
-      \makebox[8em][s]{学\hfill 位\hfill 授\hfill 予\hfill 日\hfill 期：}\underline{\makebox[8em]{\@shouyuriqi}}\par
+      \makebox[8em][s]{论\hfill 文\hfill 提\hfill 交\hfill 日\hfill 期：}\uline{\makebox[8em]{\@tijiaoriqi}}\par
+      \makebox[8em][s]{论\hfill 文\hfill 评\hfill 阅\hfill 人：}\uline{\makebox[8em]{\@pingyueren}}\par
+      \makebox[8em][s]{论\hfill 文\hfill 答\hfill 辩\hfill 日\hfill 期：}\uline{\makebox[8em]{\@dabianriqi}}\par
+      \makebox[8em][s]{答\hfill 辩\hfill 委\hfill 员\hfill 会\hfill 主\hfill 席：}\uline{\makebox[8em]{\@weiyuanhuizhuxi}}\par
+      \makebox[8em][s]{学\hfill 位\hfill 授\hfill 予\hfill 单\hfill 位：}\uline{\makebox[8em]{\@shouyudanwei}}\par
+      \makebox[8em][s]{学\hfill 位\hfill 授\hfill 予\hfill 日\hfill 期：}\uline{\makebox[8em]{\@shouyuriqi}}\par
     \endgroup
     % \vspace{16.3bp}
     \vfill
     \begingroup
       \linespread{1.94048}\zihao{4}\bfseries\centering\@riqi\par
     \endgroup
-  \end{titlepage}}
+  \end{titlepage}
+  \thispagestyle{empty}}
 
 \AtEndDocument{%
-  \clearpage
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \pagenumbering{gobble}
+  \pagestyle{empty}
   \thispagestyle{myheadings}
   \begingroup
     \linespread{1.13194}\heiti\zihao{-2}\bfseries\centering
@@ -186,7 +189,7 @@
   \endgroup
   \vspace{44bp}
   \begingroup
-    \linespread{1.66667}\zihao{4}本人（姓名）\underline{\makebox[4em]{}}学号\underline{\makebox[5em]{}}专业\underline{\makebox[8em]{}}所呈交的学位论文（论文题目：\makebox[15.5em]{}）是本人在导师指导下，独立进行的研究工作及取得的研究成果。本人在论文写作中参考的其他个人或集体的研究成果，均在文中以明确方式标明。对本论文的研究工作做出贡献的个人或集体，均已在论文中作了明确说明并表示谢意，本人依法享有和承担由此论文产生权利和责任。\par
+    \linespread{1.66667}\zihao{4}本人（姓名）\uline{\makebox[4em]{}}学号\uline{\makebox[5em]{}}专业\uline{\makebox[8em]{}}所呈交的学位论文（论文题目：\makebox[15.5em]{}）是本人在导师指导下，独立进行的研究工作及取得的研究成果。本人在论文写作中参考的其他个人或集体的研究成果，均在文中以明确方式标明。对本论文的研究工作做出贡献的个人或集体，均已在论文中作了明确说明并表示谢意，本人依法享有和承担由此论文产生权利和责任。\par
   \endgroup
   \vspace{138bp}
   \begingroup
@@ -194,8 +197,11 @@
     \vspace{22bp}
     \hspace{16.5em}年\qquad 月\qquad 日\par
   \endgroup
-
-  \clearpage
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
   \thispagestyle{myheadings}
   \begingroup
     \linespread{1.13194}\heiti\zihao{-2}\bfseries\centering
