@@ -9,12 +9,10 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
 
-\PassOptionsToClass{zihao=-4,linespread=1.25}{ctexbook}
-\LoadClass[UTF8,fontset=none,a4paper]{ctexbook}
+\LoadClass[UTF8,fontset=none,zihao=-4,linespread=1.25,a4paper]{ctexbook}
 
-\RequirePackage{geometry}
-\geometry{top=3cm,bottom=3cm,left=2.9cm,right=2.8cm,
-  headsep=\dimexpr1.5cm-\headheight\relax,footskip=1.25cm}
+\RequirePackage[top=3cm,bottom=3cm,left=2.9cm,right=2.8cm,
+  headsep=\dimexpr1.5cm-\headheight\relax,footskip=1.25cm]{geometry}
 
 \RequirePackage{fancyhdr}
 \renewcommand*{\headrule}{%
@@ -44,6 +42,7 @@
     \renewcommand{\headrulewidth}{0.5bp}
   \fi}
 \pagestyle{headings}
+
 \renewcommand\frontmatter{%
   \if@openright
     \thispagestyle{empty}\cleardoublepage
@@ -118,10 +117,10 @@
   \begin{titlepage}
     \begingroup
       \linespread{1.94048}\zihao{4}\bfseries\raggedright
-      \makebox[4em][s]{学校编号}\underline{\makebox[6em]{\@xuexiaobianhao}}\hfill
-      \makebox[5em][s]{图书分类号}\underline{\makebox[5em]{\@tushufenleihao}}\par
-      \makebox[4em][s]{学号}\underline{\makebox[6em]{\@xuehao}}\hfill
-      \makebox[5em][s]{密级}\underline{\makebox[5em]{\@miji}}\par
+      \makebox[4em][s]{学\hfill 校\hfill 编\hfill 号}\underline{\makebox[6em]{\@xuexiaobianhao}}\hfill
+      \makebox[5em][s]{图\hfill 书\hfill 分\hfill 类\hfill 号}\underline{\makebox[5em]{\@tushufenleihao}}\par
+      \makebox[4em][s]{学\hfill 号}\underline{\makebox[6em]{\@xuehao}}\hfill
+      \makebox[5em][s]{密\hfill 级}\underline{\makebox[5em]{\@miji}}\par
     \endgroup
     % \vspace{65.2bp}
     \vfill
@@ -149,26 +148,26 @@
     \begingroup
       \linespread{1.36905}\zihao{4}\bfseries\raggedright
       \if@professional
-        \makebox[7em][s]{培养方式：}\underline{\makebox[10em]{\@peiyangfangshi}}\par
-        \makebox[7em][s]{学位类别：}\underline{\makebox[10em]{\@xueweileibie}}\par
+        \makebox[7em][s]{培\hfill 养\hfill 方\hfill 式：}\underline{\makebox[10em]{\@peiyangfangshi}}\par
+        \makebox[7em][s]{学\hfill 位\hfill 类\hfill 别：}\underline{\makebox[10em]{\@xueweileibie}}\par
       % \else
       % \vspace{46bp}
       \fi
-      \makebox[7em][s]{学科专业：}\underline{\makebox[10em]{\@xuekezhuanye}}\par
-      \makebox[7em][s]{研究方向：}\underline{\makebox[10em]{\@yanjiufangxiang}}\par
-      \makebox[7em][s]{指导教师：}\underline{\makebox[10em]{\@zhidaojiaoshi}}\par
-      \makebox[7em][s]{申请学位级别：}\underline{\makebox[10em]{\@xueweijibie}}\par
+      \makebox[7em][s]{学\hfill 科\hfill 专\hfill 业：}\underline{\makebox[10em]{\@xuekezhuanye}}\par
+      \makebox[7em][s]{研\hfill 究\hfill 方\hfill 向：}\underline{\makebox[10em]{\@yanjiufangxiang}}\par
+      \makebox[7em][s]{指\hfill 导\hfill 教\hfill 师：}\underline{\makebox[10em]{\@zhidaojiaoshi}}\par
+      \makebox[7em][s]{申\hfill 请\hfill 学\hfill 位\hfill 级\hfill 别：}\underline{\makebox[10em]{\@xueweijibie}}\par
     \endgroup
     % \vspace{54.6bp}
     \vfill
     \begingroup
       \linespread{1.07143}\zihao{4}\bfseries\raggedleft
-      \makebox[8em][s]{论文提交日期：}\underline{\makebox[8em]{\@tijiaoriqi}}\par
-      \makebox[8em][s]{论文评阅人：}\underline{\makebox[8em]{\@pingyueren}}\par
-      \makebox[8em][s]{论文答辩日期：}\underline{\makebox[8em]{\@dabianriqi}}\par
-      \makebox[8em][s]{答辩委员会主席：}\underline{\makebox[8em]{\@weiyuanhuizhuxi}}\par
-      \makebox[8em][s]{学位授予单位：}\underline{\makebox[8em]{\@shouyudanwei}}\par
-      \makebox[8em][s]{学位授予日期：}\underline{\makebox[8em]{\@shouyuriqi}}\par
+      \makebox[8em][s]{论\hfill 文\hfill 提\hfill 交\hfill 日\hfill 期：}\underline{\makebox[8em]{\@tijiaoriqi}}\par
+      \makebox[8em][s]{论\hfill 文\hfill 评\hfill 阅\hfill 人：}\underline{\makebox[8em]{\@pingyueren}}\par
+      \makebox[8em][s]{论\hfill 文\hfill 答\hfill 辩\hfill 日\hfill 期：}\underline{\makebox[8em]{\@dabianriqi}}\par
+      \makebox[8em][s]{答\hfill 辩\hfill 委\hfill 员\hfill 会\hfill 主\hfill 席：}\underline{\makebox[8em]{\@weiyuanhuizhuxi}}\par
+      \makebox[8em][s]{学\hfill 位\hfill 授\hfill 予\hfill 单\hfill 位：}\underline{\makebox[8em]{\@shouyudanwei}}\par
+      \makebox[8em][s]{学\hfill 位\hfill 授\hfill 予\hfill 日\hfill 期：}\underline{\makebox[8em]{\@shouyuriqi}}\par
     \endgroup
     % \vspace{16.3bp}
     \vfill
