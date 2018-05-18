@@ -13,14 +13,11 @@
 \LoadClass[UTF8,fontset=none,a4paper]{ctexbook}
 
 \RequirePackage{geometry}
-\newlength{\@headsep}
-\setlength{\@headsep}{1.5cm}
-\addtolength{\@headsep}{-\headheight}
-\geometry{top=3cm,bottom=3cm,left=2.9cm,right=2.8cm,headsep=\@headsep,footskip=1.25cm}
+\geometry{top=3cm,bottom=3cm,left=2.9cm,right=2.8cm,headsep=\dimexpr1.5cm-\headheight\relax,footskip=1.25cm}
 
 \RequirePackage{fancyhdr}
 \renewcommand*{\headrule}{%
-  \if@fancyplain\renewcommand{\headrulewidth}{\plainheadrulewidth}\fi
+  \if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
   \hrule\@height\headrulewidth\@width\headwidth
   \vskip\headrulewidth
   \hrule\@height\headrulewidth\@width\headwidth
@@ -37,8 +34,8 @@
 \fancypagestyle{headings}{%
   \fancyhf{}
   \fancyhead[CO]{\linespread{1.29365}\zihao{5}\leftmark}
-  \fancyhead[CE]{\linespread{1.29365}\zihao{5}\MakeUppercase{%
-    \@shouyudanwei\@xuekeleibie\@xueweijibie 学位论文}}
+  \fancyhead[CE]{\linespread{1.29365}\zihao{5}
+    \@shouyudanwei\@xuekeleibie\@xueweijibie 学位论文}
   \fancyfoot[C]{\linespread{1.29365}\zihao{5}\thepage}
   \if@doctor
     \renewcommand{\headrulewidth}{1.5bp}
@@ -118,7 +115,6 @@
 
 \AtBeginDocument{%
   \begin{titlepage}
-    \pagestyle{empty}
     \begingroup
       \linespread{1.94048}\zihao{4}\bfseries\raggedright
       \makebox[4em][s]{学校编号}\underline{\makebox[6em]{\@xuexiaobianhao}}\hfill
@@ -239,10 +235,10 @@
   \fi
   \chapter{\contentsname}
   \@starttoc{toc}
-  \if@restonecol\twocolumn\fi}
+\if@restonecol\twocolumn\fi}
 
 \RequirePackage{titletoc}
-\contentsmargin{0pt}
+\contentsmargin{0bp}
 \titlecontents{chapter}[0em]{\linespread{1.52778}\bfseries}{%
   \thecontentslabel\quad}{}{\titlerule*{.}\thecontentspage}
 \titlecontents{section}[2em]{\linespread{1.52778}\bfseries}{%
@@ -263,10 +259,31 @@
     name={第,节},
     number={\chinese{section}},
     format={\linespread{1.22222}\zihao{-3}\bfseries\centering},
-    beforeskip={0pt},
-    afterskip={0pt},
+    beforeskip={0bp},
+    afterskip={0bp},
   }}
 
 \RequirePackage[sorting=none,style=gb7714-2015]{biblatex}
-\setlength{\bibitemsep}{0pt}
+\setlength{\bibitemsep}{0bp}
 \renewcommand{\footnotesize}{\zihao{-5}}
+
+\RequirePackage{makeidx}
+\renewcommand{\printindex}{%
+  \chapter{\indexname}
+  \@input@{\jobname.ind}}
+\renewenvironment{theindex}
+  {\if@twocolumn
+      \@restonecolfalse
+  \else
+      \@restonecoltrue
+  \fi
+  % \twocolumn[\@makechapterhead{\indexname}]%
+  % \@mkboth{\MakeUppercase\indexname}%
+  %         {\MakeUppercase\indexname}%
+  % \thispagestyle{empty}
+  \parindent\z@
+  \parskip\z@ \@plus .3\p@\relax
+  \columnseprule \z@
+  \columnsep 35\p@
+  \let\item\@idxitem}
+  {\if@restonecol\onecolumn\else\clearpage\fi}
