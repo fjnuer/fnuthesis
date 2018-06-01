@@ -15,6 +15,12 @@
   headsep=\dimexpr1.5cm-\headheight\relax,footskip=1.25cm]{geometry}
 
 \RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[CO]{\linespread{1.29365}\zihao{5}\leftmark}
+\fancyhead[CE]{\linespread{1.29365}\zihao{5}
+  \@shouyudanwei\@xuekeleibie\@xueweijibie 学位论文}
+\fancyfoot[C]{\linespread{1.29365}\zihao{5}\thepage}
 \if@doctor
   \renewcommand{\headrulewidth}{1.5bp}
 \else
@@ -26,17 +32,6 @@
   \vskip\headrulewidth
   \hrule\@height\headrulewidth\@width\headwidth
   \vskip-\headrulewidth}
-\fancypagestyle{myheadings}{%
-  \fancyhf{}
-  \fancyhead[C]{\linespread{1.29365}\zihao{5}\leftmark}
-  \fancyfoot[C]{\linespread{1.29365}\zihao{5}\thepage}}
-\fancypagestyle{headings}{%
-  \fancyhf{}
-  \fancyhead[CO]{\linespread{1.29365}\zihao{5}\leftmark}
-  \fancyhead[CE]{\linespread{1.29365}\zihao{5}
-    \@shouyudanwei\@xuekeleibie\@xueweijibie 学位论文}
-  \fancyfoot[C]{\linespread{1.29365}\zihao{5}\thepage}}
-\pagestyle{headings}
 
 \renewcommand\frontmatter{%
   \if@openright
@@ -57,10 +52,11 @@
 
 \setmainfont{Times New Roman}
 \xeCJKsetup{AutoFakeBold=true}
+\xeCJKsetcharclass{`①}{`⑳}{1}
 \setCJKmainfont{SimSun}
-\setCJKfamilyfont{zhkai}{KaiTi}
 \setCJKfamilyfont{zhsong}{SimSun}
 \setCJKfamilyfont{zhhei}{SimHei}
+\setCJKfamilyfont{zhkai}{KaiTi}
 \newcommand*{\songti}{\CJKfamily{zhsong}}
 \newcommand*{\heiti}{\CJKfamily{zhhei}}
 \newcommand*{\kaishu}{\CJKfamily{zhkai}}
@@ -181,7 +177,6 @@
   \fi
   \pagenumbering{gobble}
   \pagestyle{empty}
-  \thispagestyle{myheadings}
   \begingroup
     \linespread{1.13194}\heiti\zihao{-2}\bfseries\centering
       \@shouyudanwei 学位论文原创性声明\par
@@ -202,7 +197,6 @@
   \else
     \clearpage
   \fi
-  \thispagestyle{myheadings}
   \begingroup
     \linespread{1.13194}\heiti\zihao{-2}\bfseries\centering
       \@shouyudanwei 学位论文使用授权声明\par
@@ -250,7 +244,7 @@
     beforeskip={17bp},
     afterskip={16.5bp},
     fixskip=true,
-    pagestyle={myheadings},
+    pagestyle={fancy},
     tocline={\CTEXnumberline{#1}#2},
   },
   section={%
@@ -264,6 +258,13 @@
 \RequirePackage[sorting=none,style=gb7714-2015]{biblatex}
 \setlength{\bibitemsep}{0bp}
 \renewcommand{\footnotesize}{\zihao{-5}}
+\renewcommand\thefootnote{%
+  \ifcase\value{footnote}
+  \or ①\or ②\or ③\or ④\or ⑤\or ⑥\or ⑦\or ⑧\or ⑨\or ⑩
+  \or ⑪\or ⑫\or ⑬\or ⑭\or ⑮\or ⑯\or ⑰\or ⑱\or ⑲\or ⑳
+  \else *\fi\relax}
+\renewcommand\@makefntext[1]{%
+  \parindent 1em\noindent\hb@xt@0.8em{\hss\@makefnmark}#1}
 
 \RequirePackage{makeidx}
 \renewcommand{\printindex}{%
